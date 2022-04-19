@@ -17,3 +17,4 @@ D:\RabbitMQ\rabbitmq_server-3.9.15\sbin\Send\obj\Debug\net5.0\Send.pdb
 D:\RabbitMQ\rabbitmq_server-3.9.15\sbin\Send\obj\Debug\net5.0\Send.genruntimeconfig.cache
 D:\RabbitMQ\rabbitmq_server-3.9.15\sbin\Send\bin\Debug\net5.0\HtmlAgilityPack.dll
 D:\RabbitMQ\rabbitmq_server-3.9.15\sbin\Send\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\RabbitMQ\rabbitmq_server-3.9.15\sbin\Send\obj\Debug\net5.0\Send.csproj.AssemblyReference.cache

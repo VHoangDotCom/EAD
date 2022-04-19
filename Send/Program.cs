@@ -32,14 +32,14 @@ namespace Send
             {
                 var message = item.GetAttributeValue("href", "");
 
-                var body = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(message));
+                var body = Encoding.UTF8.GetBytes(message);
 
                 channel.BasicPublish(exchange: "",
                                      routingKey: "task_queue",
                                      basicProperties: null,
                                      body: body);
                 Console.WriteLine(" [x] Sent {0}", message);
-                Thread.Sleep(1000);
+                Thread.Sleep(10000);
             }
         }
     }

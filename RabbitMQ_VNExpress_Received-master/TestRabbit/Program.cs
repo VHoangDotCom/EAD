@@ -11,6 +11,7 @@ namespace TestRabbit
 {
     class Program
     {
+        DBConnect conn = new DBConnect();
         static void Main(string[] args)
         {
 
@@ -99,41 +100,43 @@ namespace TestRabbit
                         var web = new HtmlWeb();
                         HtmlDocument doc = web.Load(link); // Lấy nội dung bên trong link đó
                         var title = doc.QuerySelector("h1.title-detail").InnerHtml; // tìm đến những h1 có class= title-detail
-                        var description = doc.QuerySelector("p.description").InnerHtml;
+                        var description = doc.QuerySelector("p.description").InnerText;
                         var image = doc.QuerySelector("img").Attributes["src"].Value;
                         // Sau khi lấy được dữ liệu thì bắn lên Database
-                        try
-                        {
-                            Console.WriteLine("Openning Connection ...");
-                            //open connection
-                            
-                            Console.WriteLine("Connection successful!");
+                          try
+                          {
+                              Console.WriteLine("Openning Connection ...");
+                              //open connection
 
-                            string query = "INSERT INTO VNExpress (title, description, image) VALUES (@title, @description, @image)";
-                            var source = new Source()
-                            {
-                                title = title,
-                                description = description,
-                                image = image,
-                            };
+                              Console.WriteLine("Connection successful!");
 
-                            SqlCommand command = new SqlCommand(query, cnn);
-                            command.Prepare();
-                            command.Parameters.AddWithValue("@title", source.title);
-                            command.Parameters.AddWithValue("@description", source.description);
-                            command.Parameters.AddWithValue("@image", source.image);
-                            command.ExecuteNonQuery();
+                              string query = "INSERT INTO VNExpress (title, description, image) VALUES (@title, @description, @image)";
+                              var source = new Source()
+                              {
+                                  title = title,
+                                  description = description,
+                                  image = image,
+                              };
 
-                            Console.WriteLine("Add ok");
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine("Error: " + e.Message);
-                        }
+                              SqlCommand command = new SqlCommand(query, cnn);
+                              command.Prepare();
+                              command.Parameters.AddWithValue("@title", source.title);
+                              command.Parameters.AddWithValue("@description", source.description);
+                              command.Parameters.AddWithValue("@image", source.image);
+                              command.ExecuteNonQuery();
+
+                              Console.WriteLine("Add ok");
+                          }
+                          catch (Exception e)
+                          {
+                              Console.WriteLine("Error: " + e.Message);
+                          }
                     };
                     channel.BasicConsume(queue: "task_queue",
                                          autoAck: true,
                                          consumer: consumer);
+
+                   
 
                     Console.WriteLine(" Press [enter] to exit.");
                     Console.ReadLine();

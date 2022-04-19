@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "JOpIu9L9Lm7Jug+wu7qrMqXnl+qS2g/27uKn9AUjGbEkI9cmthHIscAAlm9dSEKsHPhTcQAby9eupTAPAx0mQg==",
+  "success": true,
+  "projectFilePath": "D:\\RabbitMQ\\rabbitmq_server-3.9.15\\sbin\\Send\\Send.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\htmlagilitypack\\1.11.42\\htmlagilitypack.1.11.42.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\rabbitmq.client\\6.2.4\\rabbitmq.client.6.2.4.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}

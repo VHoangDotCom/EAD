@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Send", "Send.csproj", "{88282BE1-DD69-44AB-B13F-C47280727B8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Receive_Demo", "..\Receive_Demo\Receive_Demo.csproj", "{360B8CCB-BFE6-45F6-9738-64F5102E8312}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Receive_Demo", "..\Receive_Demo\Receive_Demo.csproj", "{360B8CCB-BFE6-45F6-9738-64F5102E8312}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCCrawler", "..\MVCCrawler\MVCCrawler.csproj", "{6B59328B-FAC3-4677-9841-C3D62B92CEE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuartzDemo", "..\QuartzDemo\QuartzDemo.csproj", "{E7EBA8B5-5F6E-4258-971D-7154A849C52B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{360B8CCB-BFE6-45F6-9738-64F5102E8312}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{360B8CCB-BFE6-45F6-9738-64F5102E8312}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{360B8CCB-BFE6-45F6-9738-64F5102E8312}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B59328B-FAC3-4677-9841-C3D62B92CEE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B59328B-FAC3-4677-9841-C3D62B92CEE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B59328B-FAC3-4677-9841-C3D62B92CEE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B59328B-FAC3-4677-9841-C3D62B92CEE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7EBA8B5-5F6E-4258-971D-7154A849C52B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7EBA8B5-5F6E-4258-971D-7154A849C52B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7EBA8B5-5F6E-4258-971D-7154A849C52B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7EBA8B5-5F6E-4258-971D-7154A849C52B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

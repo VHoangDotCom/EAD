@@ -11,65 +11,38 @@ namespace TestRabbit
 {
     class Program
     {
-        DBConnect conn = new DBConnect();
+        
         static void Main(string[] args)
         {
-
-
-            //////////////////////////////////////
-            //Phần lấy thông tin từ web
+            /*string connectionString = null;
+            SqlConnection connection;
+            SqlCommand command;
+            string sql = null;
+            SqlDataReader dataReader;
+            connectionString = @"Data Source=(localDb)\MSSQLLocalDB;Initial Catalog=RabbitDB;Persist Security Info=True";
+            sql = "Select * from Source";
+            connection = new SqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+                command = new SqlCommand(sql, connection);
+                dataReader = command.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    Console.WriteLine(dataReader.GetValue(0) + " - " + dataReader.GetValue(1));
+                }
+                dataReader.Close();
+                command.Dispose();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Cannot open connection !" + ex.Message);
+            }
+            Console.WriteLine("Press [enter] to exit.");
+            Console.ReadLine();*/
 
             Console.OutputEncoding = Encoding.UTF8;
-            //using (var cnn = DBConnect.connect())
-            //{
-            //    try
-            //    {
-            //        Console.WriteLine("Openning Connection ...");
-            //        //open connection
-            //        cnn.Open();
-            //        Console.WriteLine("Connection successful!");
-
-
-
-            //        string query = "INSERT INTO VNExpressReceived (title, description, image) VALUES (@title, @description, @image)";
-
-            //        //create a new SQL Query using StringBuilder
-            //        //StringBuilder strBuilder = new StringBuilder();
-            //        //strBuilder.Append("INSERT INTO VNExpressReceived (title, description, image) VALUES ");
-            //        //strBuilder.Append("(N'Báo lá cải', N'Báo test', N'Ảnh báo lá cải')");
-            //        //string sqlQuery = strBuilder.ToString();
-            //        //using (SqlCommand command = cnn.CreateCommand()) //pass SQL query created above and connection
-            //        //{
-
-            //        //    command.ExecuteNonQuery(); //execute the Query
-            //        //    Console.WriteLine("Query Executed.");
-            //        //}
-
-            //        //strBuilder.Clear(); // clear all the string
-
-            //        var source = new Source()
-            //        {
-            //            title = "Báo lá cải",
-            //            description = "Báo test",
-            //            image = "Ảnh báo lá cải",
-            //        };
-
-            //        SqlCommand command = new SqlCommand(query, cnn);
-            //        command.Prepare();
-            //        command.Parameters.AddWithValue("@title", source.title);
-            //        command.Parameters.AddWithValue("@description", source.description);
-            //        command.Parameters.AddWithValue("@image", source.image);
-            //        command.ExecuteNonQuery();
-
-            //        Console.WriteLine("Add ok");
-            //    }
-            //    catch (Exception e)
-            //    {
-            //        Console.WriteLine("Error: " + e.Message);
-            //    }
-            //}
-
-
             var factory = new ConnectionFactory() { HostName = "localhost" };
             using (var connection = factory.CreateConnection())
 
@@ -103,40 +76,72 @@ namespace TestRabbit
                         var description = doc.QuerySelector("p.description").InnerText;
                         var image = doc.QuerySelector("img").Attributes["src"].Value;
                         // Sau khi lấy được dữ liệu thì bắn lên Database
-                          try
-                          {
-                              Console.WriteLine("Openning Connection ...");
-                              //open connection
+                        try
+                        {
+                            Console.WriteLine("Openning Connection ...");
+                            //open connection
 
-                              Console.WriteLine("Connection successful!");
+                            Console.WriteLine("Connection successful!");
+                            //VNExpress table
+                            string query = "INSERT INTO VNExpress (title, description, image) VALUES (@title, @description, @image)";
+                            var source = new Source()
+                            {
+                                title = title,
+                                description = description,
+                                image = image,
+                            };
 
-                              string query = "INSERT INTO VNExpress (title, description, image) VALUES (@title, @description, @image)";
-                              var source = new Source()
-                              {
-                                  title = title,
-                                  description = description,
-                                  image = image,
-                              };
+                            SqlCommand command = new SqlCommand(query, cnn);
+                            command.Prepare();
+                            command.Parameters.AddWithValue("@title", source.title);
+                            command.Parameters.AddWithValue("@description", source.description);
+                            command.Parameters.AddWithValue("@image", source.image);
+                            command.ExecuteNonQuery();
 
-                              SqlCommand command = new SqlCommand(query, cnn);
-                              command.Prepare();
-                              command.Parameters.AddWithValue("@title", source.title);
-                              command.Parameters.AddWithValue("@description", source.description);
-                              command.Parameters.AddWithValue("@image", source.image);
-                              command.ExecuteNonQuery();
+                            //Source table
+                            var title1 = doc.QuerySelector("h1.title-detail").InnerHtml;
+                            var url = doc.QuerySelector("a").Attributes["href"].Value;
+                            var title_detail = doc.QuerySelector("p.description").InnerText;
+                            var content_detail = doc.QuerySelector("article.fck_detail").InnerText;
+                            var image_detail = doc.QuerySelector(".fig-picture img").Attributes["src"].Value;
+                            var date = DateTime.Now;
+                            string query1 = "INSERT INTO Source (name, link, LinkSelector, TitleDetail, ContentDetail, ImageDetail, RemoteSelector, status, CreatedAt, UpdatedAt)" +
+                            " VALUES (@title1, @url, null,@title_detail,@content_detail,@image_detail,null,1,getDate().Now,getDate().Now )";
+                            var detailSource = new DetailSource()
+                            {
+                                name = title1,
+                                link = url,
+                                LinkSelector = null,
+                                TitleDetail = title_detail,
+                                ContentDetail = content_detail,
+                                ImageDetail = image_detail,
+                                RemoteSelector = null,
+                                status = 1,
+                                CreatedAt = date,
+                                UpdatedAt = date,
+                            };
 
-                              Console.WriteLine("Add ok");
-                          }
-                          catch (Exception e)
-                          {
-                              Console.WriteLine("Error: " + e.Message);
-                          }
+                            SqlCommand command1 = new SqlCommand(query1, cnn);
+                            command1.Prepare();
+                            command1.Parameters.AddWithValue("@title1", detailSource.name);
+                            command1.Parameters.AddWithValue("@url", detailSource.link);
+                            command1.Parameters.AddWithValue("@title_detail", detailSource.TitleDetail);
+                            command1.Parameters.AddWithValue("@content_detail", detailSource.ContentDetail);
+                            command1.Parameters.AddWithValue("@image_detail", detailSource.ImageDetail);
+                            command1.ExecuteNonQuery();
+
+                            Console.WriteLine("Insert successful!");
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Error: " + e.Message);
+                        }
                     };
-                    channel.BasicConsume(queue: "task_queue",
+                    channel.BasicConsume(queue: "news",
                                          autoAck: true,
                                          consumer: consumer);
 
-                   
+
 
                     Console.WriteLine(" Press [enter] to exit.");
                     Console.ReadLine();
@@ -144,7 +149,7 @@ namespace TestRabbit
             }
 
 
-            
+
         }
     }
 }

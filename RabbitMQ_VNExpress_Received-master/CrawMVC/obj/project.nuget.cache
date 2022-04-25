@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "kqI+RlYo/UyD2FR3shRxFss++MdGvY20ZtiGbK/8m6ivckPgifgK8G5mHDPRU0zu4amAmFiHVaVJ7vszmOn+ug==",
+  "success": true,
+  "projectFilePath": "D:\\RabbitMQ\\rabbitmq_server-3.9.15\\sbin\\RabbitMQ_VNExpress_Received-master\\CrawMVC\\CrawMVC.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\htmlagilitypack\\1.11.42\\htmlagilitypack.1.11.42.nupkg.sha512"
+  ],
+  "logs": []
+}

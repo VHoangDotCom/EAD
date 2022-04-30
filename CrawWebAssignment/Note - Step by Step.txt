@@ -1,0 +1,32 @@
+1. Install-Package EntityFramework
+
+2. Add Article, Content, Source into Models folder
+
+3. Create CrawlContext.cs (DBCOntext)
+
+4. Publish project to Azure
+https://crawwebassignment.azurewebsites.net 
+
+5. Create DB on Azure
+https://www.youtube.com/watch?v=kMCNTLnna04
+server : crawldb.database.windows.net
+Server admin login : crawshit
+password : Crawlmyass123
+
+6. Add connection string to Web.config
+<connectionStrings>
+    <add name="CrawDB" connectionString="Data Source=crawldb.database.windows.net;Initial Catalog=CrawDB;User ID=crawshit;Password=********;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" providerName="System.Data.SqlClient"/>
+</connectionStrings>
+
+7. Run 3 statements :
+  Enable-Migrations. Thực hiện một lần trong project.
+  Add-Migration và nhập tên InitDatabase. Mỗi lần có thay đổi thì thực hiện với nội dung thay đổi.
+  Update-Database tiến hành thực hiện thay đổi vào database.
+
+8. Add Controller
+
+9. Update layout.cshtml
+
+10. Install Microsoft.jQuery.Unobtrusive-ajax
+
+ 

@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using CrawWebAssignment.Data;
 using CrawWebAssignment.Models;
 using PagedList;
+using System.Data.Entity.Infrastructure;
 
 namespace CrawWebAssignment.Controllers
 {
@@ -23,7 +24,7 @@ namespace CrawWebAssignment.Controllers
             ViewBag.TitleSortParm = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
             ViewBag.UrlSortParm = String.IsNullOrEmpty(sortOrder) ? "url_desc" : "";
             ViewBag.DescSortParm = sortOrder == "Desc" ? "order_desc" : "Desc";
-
+           
             //PageList
             if (searchString != null)
             {
@@ -34,7 +35,7 @@ namespace CrawWebAssignment.Controllers
                 searchString = currentFilter;
             }
             ViewBag.CurrentFilter = searchString;
-
+            
             var articles = db.Articles.AsQueryable();
             if (!String.IsNullOrEmpty(searchString))
             {

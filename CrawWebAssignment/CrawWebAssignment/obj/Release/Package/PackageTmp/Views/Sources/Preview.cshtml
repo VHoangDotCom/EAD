@@ -1,0 +1,27 @@
+﻿@model CrawWebAssignment.Models.Article
+
+<div>
+    <h3>
+        Title:
+    </h3>
+    @Model.Title
+</div>
+
+<div>
+    <h3>
+        Description:
+    </h3>
+    @Model.Description
+</div>
+
+<div>
+    <h3>
+        Image:
+    </h3>
+    @Model.Image
+</div>
+
+<div>
+    @Html.ActionLink("Save Link", "SaveLink")
+</div>
+

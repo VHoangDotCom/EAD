@@ -11,6 +11,7 @@ using CrawWebAssignment.Data;
 using CrawWebAssignment.Models;
 using HtmlAgilityPack;
 using Newtonsoft.Json;
+using PagedList;
 using RabbitMQ.Client;
 
 namespace CrawWebAssignment.Controllers
@@ -24,9 +25,102 @@ namespace CrawWebAssignment.Controllers
         private static string getSelectorImage;
 
         // GET: Sources
-        public ActionResult Index()
+        public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            return View(db.Sources.ToList());
+            ViewBag.CurrentSort = sortOrder; //PageList
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.UrlSortParm = String.IsNullOrEmpty(sortOrder) ? "url_desc" : "";
+            ViewBag.LinkSelectorParm = sortOrder == "Desc" ? "order_desc" : "Desc";
+
+            //PageList
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+
+            var sources = db.Sources.AsQueryable();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                sources = sources.Where(s => s.Name.Contains(searchString)
+                                       || s.LinkSelector.Contains(searchString)
+                                       );
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    sources = sources.OrderByDescending(s => s.Name);
+                    break;
+                case "url_desc":
+                    sources = sources.OrderByDescending(s => s.Url);
+                    break;
+                case "Desc":
+                    sources = sources.OrderBy(s => s.LinkSelector);
+                    break;
+                case "order_desc":
+                    sources = sources.OrderByDescending(s => s.LinkSelector);
+                    break;
+                default:
+                    sources = sources.OrderBy(s => s.Url);
+                    break;
+            }
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(sources.ToPagedList(pageNumber, pageSize));
+            // return View(db.Sources.ToList());
+        }
+
+        public ActionResult IndexAjax(string sortOrder, string currentFilter, string searchString, int? page)
+        {
+            ViewBag.CurrentSort = sortOrder; //PageList
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.UrlSortParm = String.IsNullOrEmpty(sortOrder) ? "url_desc" : "";
+            ViewBag.LinkSelectorParm = sortOrder == "Desc" ? "order_desc" : "Desc";
+
+            //PageList
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+
+            var sources = db.Sources.AsQueryable();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                sources = sources.Where(s => s.Name.Contains(searchString)
+                                       || s.LinkSelector.Contains(searchString)
+                                       );
+            }
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    sources = sources.OrderByDescending(s => s.Name);
+                    break;
+                case "url_desc":
+                    sources = sources.OrderByDescending(s => s.Url);
+                    break;
+                case "Desc":
+                    sources = sources.OrderBy(s => s.LinkSelector);
+                    break;
+                case "order_desc":
+                    sources = sources.OrderByDescending(s => s.LinkSelector);
+                    break;
+                default:
+                    sources = sources.OrderBy(s => s.Url);
+                    break;
+            }
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(sources.ToPagedList(pageNumber, pageSize));
+            // return View(db.Sources.ToList());
         }
 
         // GET: Sources/Details/5

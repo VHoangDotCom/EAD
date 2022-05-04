@@ -27,6 +27,8 @@ password : Crawlmyass123
 
 9. Update layout.cshtml
 
-10. Install Microsoft.jQuery.Unobtrusive-ajax
+10. Install Microsoft.jQuery.Unobtrusive-ajax + Pagelist
 
- 
+11. Source : crawl link from VNexpress -> save DB
+  Article : read from DB -> Url + title + description
+  Tao trang Ajax hien thi noi dung chi tiet bai viet 

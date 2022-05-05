@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -171,14 +171,14 @@ namespace CrawWebAssignment.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Url,Title,Image,Description")] Article article)
         {
-            /* if (ModelState.IsValid)
+            *//* if (ModelState.IsValid)
              {
                  db.Articles.Add(article);
                  db.SaveChanges();
                  return RedirectToAction("Index");
              }
 
-             return View(article);*/
+             return View(article);*//*
 
             if (ModelState.IsValid)
             {
@@ -216,13 +216,13 @@ namespace CrawWebAssignment.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Id,Url,Title,Image,Description")] Article article)
         {
-            /* if (ModelState.IsValid)
+            *//* if (ModelState.IsValid)
              {
                  db.Entry(article).State = EntityState.Modified;
                  db.SaveChanges();
                  return RedirectToAction("Index");
              }
-             return View(article);*/
+             return View(article);*//*
             if (ModelState.IsValid)
             {
                 try
@@ -255,10 +255,10 @@ namespace CrawWebAssignment.Controllers
             return View(article);
         }
         //new
-      /*  public async Task<ActionResult> Delete(int id)
+      *//*  public async Task<ActionResult> Delete(int id)
         {
             return View(await GetByIdAsync(id));
-        }*/
+        }*//*
 
         // POST: Articles/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -269,7 +269,7 @@ namespace CrawWebAssignment.Controllers
             db.Articles.Remove(article);
             db.SaveChanges();
             return RedirectToAction("Index");
-            /* try
+            *//* try
              {
                  var response = await _esFactory.ElasticSearchClient().DeleteAsync<Article>(id, i => i
                          .Index("articles")
@@ -279,7 +279,7 @@ namespace CrawWebAssignment.Controllers
              catch
              {
                  return View(article);
-             }*/
+             }*//*
         }
 
         protected override void Dispose(bool disposing)
@@ -292,3 +292,4 @@ namespace CrawWebAssignment.Controllers
         }
     }
 }
+*/

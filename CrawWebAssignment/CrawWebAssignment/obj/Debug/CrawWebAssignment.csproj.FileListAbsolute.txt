@@ -105,7 +105,6 @@ D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment
 D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\PagedList.Mvc.dll
 D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\PagedList.xml
 D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\PagedList.Mvc.xml
-D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\obj\Debug\CrawWebAssignment.csproj.AssemblyReference.cache
 D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\Microsoft.Extensions.Logging.Abstractions.dll
 D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\Quartz.dll
 D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\System.Diagnostics.DiagnosticSource.dll
@@ -118,3 +117,4 @@ D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment
 D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\Elasticsearch.Net.xml
 D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\Nest.pdb
 D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\Nest.xml
+D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\obj\Debug\CrawWebAssignment.Migrations.updateDB.resources

@@ -8,9 +8,12 @@ namespace CrawWebAssignment.Models
     public class Source
     {
         public int Id { get; set; }
-        public string Name { get; set; }
         public string Url { get; set; }
-        public string LinkSelector { get; set; }
-        public virtual Article Article { get; set; } // 1 link có 1 bài viết
+        public string SelectorSubUrl { get; set; }
+        public string SelectorTitle { get; set; }
+        public string SelectorImage { get; set; }
+        public string SelectorDescrition { get; set; }
+        public string SelectorContent { get; set; }
+        public string CategoryId { get; set; }
     }
 }

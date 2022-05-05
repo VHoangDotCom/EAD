@@ -8,10 +8,33 @@ namespace CrawWebAssignment.Models
     public class Article
     {
         public int Id { get; set; }
-        public string Url { get; set; }
+        public string UrlSource { get; set; }
         public string Title { get; set; }
         public string Image { get; set; }
         public string Description { get; set; }
-        public virtual ICollection<Source> Sources { get; set; }//1 bai viet co nhieu link
+        public string Content { get; set; }
+        public string CategoryId { get; set; }
+        public long CreatedAt { get; set; }
+
+        public bool Validation()
+        {
+            if (string.IsNullOrEmpty(Title))
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(Image))
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(Description))
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(Content))
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -222,7 +222,7 @@ namespace CrawWebAssignment.Controllers
                         db.Sources.Add(source);
                         db.SaveChanges();
 
-                      /*  //Add to Article Table
+                      *//*  //Add to Article Table
                         var title_article = doc.QuerySelector("h1.title-detail").InnerHtml;
                         var description = doc.QuerySelector("p.description").InnerText;
                         var image = doc.QuerySelector("img").Attributes["src"].Value;
@@ -234,7 +234,7 @@ namespace CrawWebAssignment.Controllers
                             Description = description
                         };
                         db.Articles.Add(article);
-                        db.SaveChanges();*/
+                        db.SaveChanges();*//*
 
                         setLink.Add(sourceLink);                     
                     }
@@ -452,3 +452,4 @@ namespace CrawWebAssignment.Controllers
         }
     }
 }
+*/

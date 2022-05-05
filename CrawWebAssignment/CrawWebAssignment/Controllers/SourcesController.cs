@@ -191,21 +191,55 @@ namespace CrawWebAssignment.Controllers
                     setLink = new HashSet<Content>(); // Đảm bảo link không giống nhau, nếu có sẽ bị ghi đè ở phần tử trước
 
                     foreach (var node in nodeList)
-                    {
+                    {                                              
                         var link = node.Attributes["href"].Value;
+                        var checkLink = link.EndsWith(".html");
+                        var checkLink1 = link.EndsWith("_vne");
+
+                        var title = node.InnerText;
+
                         if (string.IsNullOrEmpty(link)) // nếu link này null
                         {
                             continue;
+                        }else if(checkLink == false && checkLink1 == false)//ko duyet link khac bai viet
+                        {
+                            continue;
                         }
+
+
                         Content sourceLink = new Content()
                         {
                             UrlSource = link,
                             LinkSelector = content.LinkSelector
                         };
 
-                        setLink.Add(sourceLink);
+                        Source source = new Source()
+                        {
+                            Url = link,
+                            LinkSelector = content.LinkSelector,
+                            Name = title
+                        };
+                        db.Sources.Add(source);
+                        db.SaveChanges();
+
+                      /*  //Add to Article Table
+                        var title_article = doc.QuerySelector("h1.title-detail").InnerHtml;
+                        var description = doc.QuerySelector("p.description").InnerText;
+                        var image = doc.QuerySelector("img").Attributes["src"].Value;
+                        Article article = new Article()
+                        {
+                            Url = link,
+                            Title = title_article,
+                            Image = image,
+                            Description = description
+                        };
+                        db.Articles.Add(article);
+                        db.SaveChanges();*/
+
+                        setLink.Add(sourceLink);                     
                     }
 
+                   
                     return PartialView("ListLink", setLink);
                 }
                 catch (Exception e)

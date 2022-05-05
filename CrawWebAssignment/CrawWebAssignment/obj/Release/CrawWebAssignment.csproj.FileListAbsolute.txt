@@ -106,3 +106,15 @@ D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment
 D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\System.Threading.Channels.xml
 D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\System.Threading.Tasks.Extensions.xml
 D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\obj\Release\CrawWebAssignment.Migrations.SourceUpdate.resources
+D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\Elasticsearch.Net.dll
+D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\Microsoft.Extensions.Logging.Abstractions.dll
+D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\Nest.dll
+D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\Quartz.dll
+D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\System.Diagnostics.DiagnosticSource.dll
+D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\Elasticsearch.Net.pdb
+D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\Elasticsearch.Net.xml
+D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\Microsoft.Extensions.Logging.Abstractions.xml
+D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\Nest.pdb
+D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\Nest.xml
+D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\Quartz.xml
+D:\epc\Ap-Sem3\Enterprise Application Programming\EAD Projects\CrawWebAssignment\CrawWebAssignment\bin\System.Diagnostics.DiagnosticSource.xml

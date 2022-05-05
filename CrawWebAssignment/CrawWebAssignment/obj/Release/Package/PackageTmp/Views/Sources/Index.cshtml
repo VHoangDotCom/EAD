@@ -1,7 +1,9 @@
-﻿@model IEnumerable<CrawWebAssignment.Models.Source>
+﻿@model PagedList.IPagedList<CrawWebAssignment.Models.Source>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Sources";
 }
 
 <h2>Index</h2>
@@ -9,37 +11,75 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Url)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LinkSelector)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Url)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LinkSelector)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
+@using (Ajax.BeginForm("IndexAjax", "Sources", new AjaxOptions()
+{
+    HttpMethod = "GET",
+    InsertionMode = InsertionMode.Replace,
+    OnFailure = "failedID",
+    LoadingElementId = "loadingId",
+    UpdateTargetId = "resultId",
+}))
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+        <input type="hidden" name="sortOrder" value="@Request.QueryString["sortOrder"]" />
+        <input type="submit" value="Search" id="btn-submit" />
+    </p>
+}
+<img id="ajax-loader" width="50" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3AAjax_loader_metal_512.gif&psig=AOvVaw0qO-PDXotvB_T3NmxcX2g7&ust=1646274259315000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNjL7NmvpvYCFQAAAAAdAAAAABAJ" style="display:none" />
+
+<div id="resultId">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th>
+                @Html.ActionLink("Url", "Index", new { sortOrder = ViewBag.UrlSortParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th>
+                @Html.ActionLink("LinkSelector", "Index", new { sortOrder = ViewBag.LinkSelectorParm, currentFilter = ViewBag.CurrentFilter })
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Url)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LinkSelector)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+        new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                $("input[name=SearchString]").on("keyup change", function (e) {
+                    $("#btn-submit").click();
+                })
+            })
+    </script>
 }
 
-</table>

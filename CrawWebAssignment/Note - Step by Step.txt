@@ -32,3 +32,7 @@ password : Crawlmyass123
 11. Source : crawl link from VNexpress -> save DB
   Article : read from DB -> Url + title + description
   Tao trang Ajax hien thi noi dung chi tiet bai viet 
+
+12. Ket noi MVC -> ElasticSearch
+https://kienchu.blogspot.com/2020/01/xay-dung-crud-su-dung-aspnet-mvc-ket.html
+- cai dat packages : Elasticsearch.NET   || NEST

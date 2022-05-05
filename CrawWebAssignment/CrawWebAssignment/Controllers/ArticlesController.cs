@@ -255,31 +255,31 @@ namespace CrawWebAssignment.Controllers
             return View(article);
         }
         //new
-        public async Task<ActionResult> Delete(int id)
+      /*  public async Task<ActionResult> Delete(int id)
         {
             return View(await GetByIdAsync(id));
-        }
+        }*/
 
         // POST: Articles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(int id, Article article)
+        public ActionResult DeleteConfirmed(int id)
         {
-            /*  Article article = db.Articles.Find(id);
-              db.Articles.Remove(article);
-              db.SaveChanges();
-              return RedirectToAction("Index");*/
-            try
-            {
-                var response = await _esFactory.ElasticSearchClient().DeleteAsync<Article>(id, i => i
-                        .Index("articles")
-                        .Refresh(Elasticsearch.Net.Refresh.True));
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View(article);
-            }
+            Article article = db.Articles.Find(id);
+            db.Articles.Remove(article);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+            /* try
+             {
+                 var response = await _esFactory.ElasticSearchClient().DeleteAsync<Article>(id, i => i
+                         .Index("articles")
+                         .Refresh(Elasticsearch.Net.Refresh.True));
+                 return RedirectToAction(nameof(Index));
+             }
+             catch
+             {
+                 return View(article);
+             }*/
         }
 
         protected override void Dispose(bool disposing)

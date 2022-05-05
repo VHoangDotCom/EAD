@@ -25,6 +25,7 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Article", "Index", "Articles")</li>
                     <li>@Html.ActionLink("Source", "Index", "Sources")</li>
+                    <li>@Html.ActionLink("Get Link", "GetLink", "Sources")</li>
                 </ul>
             </div>
         </div>
@@ -40,5 +41,7 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    @Scripts.Render("~/Scripts/core/js")
+    @Scripts.Render("~/Scripts/plugins/js")
 </body>
 </html>

@@ -8,11 +8,13 @@ using System.Web;
 using System.Web.Mvc;
 using CrawlNews.Models;
 using CrawlNews.config;
+using CrawlNews.CrawlerBot;
 
 namespace CrawlNews.Controllers
 {
     public class SoursesController : Controller
     {
+        private SchedulerBot schedulerBot = new SchedulerBot();
         private DBConnection db = new DBConnection();
 
         // GET: Sourses

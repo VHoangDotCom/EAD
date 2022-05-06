@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using CrawlNews.Models;
 using CrawlNews.config;
+using PagedList;
 
 namespace CrawlNews.Controllers
 {
@@ -16,9 +17,108 @@ namespace CrawlNews.Controllers
         private DBConnection db = new DBConnection();
 
         // GET: Articles
-        public ActionResult Index()
+        public ViewResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            return View(db.Articles.ToList());
+            ViewBag.CurrentSort = sortOrder; //PageList
+            ViewBag.TitleSortParm = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
+            ViewBag.CreatedSortParm = String.IsNullOrEmpty(sortOrder) ? "create_desc" : "";
+            ViewBag.CategorySortParm = sortOrder == "cate_desc" ? "cate_asc" : "cate_desc";
+            
+            //PageList
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+
+            var articles = db.Articles.AsQueryable();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                articles = articles.Where(s => s.Title.Contains(searchString)
+                                       || s.Description.Contains(searchString)
+                                       || s.CategoryId.Contains(searchString)
+                                       || s.Content.Contains(searchString)
+                                       );
+            }
+
+            switch (sortOrder)
+            {
+                case "title_desc":
+                    articles = articles.OrderByDescending(s => s.Title);
+                    break;
+                case "cate_desc":
+                    articles = articles.OrderByDescending(s => s.CategoryId);
+                    break;
+                case "cate_asc":
+                    articles = articles.OrderBy(s => s.CategoryId);
+                    break;
+                case "create_desc":
+                    articles = articles.OrderByDescending(s => s.CreatedAt);
+                    break;
+                default:
+                    articles = articles.OrderBy(s => s.UrlSource);
+                    break;
+            }
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return View(articles.ToPagedList(pageNumber, pageSize));
+
+        }
+
+        public ActionResult IndexAjax(string sortOrder, string currentFilter, string searchString, int? page)
+        {
+            ViewBag.CurrentSort = sortOrder; //PageList
+            ViewBag.TitleSortParm = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
+            ViewBag.CreatedSortParm = String.IsNullOrEmpty(sortOrder) ? "create_desc" : "";
+            ViewBag.CategorySortParm = sortOrder == "cate_desc" ? "cate_asc" : "cate_desc";
+
+            //PageList
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            ViewBag.CurrentFilter = searchString;
+
+            var articles = db.Articles.AsQueryable();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                articles = articles.Where(s => s.Title.Contains(searchString)
+                                       || s.Description.Contains(searchString)
+                                       || s.CategoryId.Contains(searchString)
+                                       || s.Content.Contains(searchString)
+                                       );
+            }
+
+            switch (sortOrder)
+            {
+                case "title_desc":
+                    articles = articles.OrderByDescending(s => s.Title);
+                    break;
+                case "cate_desc":
+                    articles = articles.OrderByDescending(s => s.CategoryId);
+                    break;
+                case "cate_asc":
+                    articles = articles.OrderBy(s => s.CategoryId);
+                    break;
+                case "create_desc":
+                    articles = articles.OrderByDescending(s => s.CreatedAt);
+                    break;
+                default:
+                    articles = articles.OrderBy(s => s.UrlSource);
+                    break;
+            }
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
+            return PartialView(articles.ToPagedList(pageNumber, pageSize));
+
         }
 
         // GET: Articles/Details/5

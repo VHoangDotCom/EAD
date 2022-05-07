@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "dgSpecHash": "RsospUa+XaY8L3ObkXNIgc+MKEUc5+Cr9OX4tq9fBoibpgyo9z8EA4HDNB7IFPQssy9DWVgOcss84htEpNa8nA==",
+  "success": true,
+  "projectFilePath": "D:\\epc\\Ap-Sem3\\Enterprise Application Programming\\EAD Projects\\CrawlNews\\BotSend_RabbitMQ\\BotSend_RabbitMQ.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\htmlagilitypack\\1.4.9\\htmlagilitypack.1.4.9.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\htmlagilitypack.cssselectors\\1.0.2\\htmlagilitypack.cssselectors.1.0.2.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\rabbitmq.client\\6.2.4\\rabbitmq.client.6.2.4.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'HtmlAgilityPack 1.4.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "HtmlAgilityPack",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'HtmlAgilityPack.CssSelectors 1.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "HtmlAgilityPack.CssSelectors",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
+}

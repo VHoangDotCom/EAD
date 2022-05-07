@@ -1,0 +1,286 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "HtmlAgilityPack/1.4.9": {
+        "type": "package",
+        "compile": {
+          "lib/Net45/HtmlAgilityPack.dll": {}
+        },
+        "runtime": {
+          "lib/Net45/HtmlAgilityPack.dll": {}
+        }
+      },
+      "HtmlAgilityPack.CssSelectors/1.0.2": {
+        "type": "package",
+        "dependencies": {
+          "HtmlAgilityPack": "1.4.9"
+        },
+        "compile": {
+          "lib/net45/HtmlAgilityPack.CssSelectors.dll": {},
+          "lib/net45/HtmlAgilityPack.dll": {}
+        },
+        "runtime": {
+          "lib/net45/HtmlAgilityPack.CssSelectors.dll": {},
+          "lib/net45/HtmlAgilityPack.dll": {}
+        }
+      },
+      "RabbitMQ.Client/6.2.4": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.4",
+          "System.Threading.Channels": "4.7.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/RabbitMQ.Client.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/RabbitMQ.Client.dll": {}
+        }
+      },
+      "System.Memory/4.5.4": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/_._": {}
+        }
+      },
+      "System.Threading.Channels/4.7.1": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.0/System.Threading.Channels.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/System.Threading.Channels.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HtmlAgilityPack/1.4.9": {
+      "sha512": "anZIsi7bbHZ35ZZzvCA+gVWC/mEXVhcJjJvxr3wzUEDsOE4uk0Fa0ZiaxVn83AZpVKVO4RHyqamPkzzJbMUgmQ==",
+      "type": "package",
+      "path": "htmlagilitypack/1.4.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "HAPIcon.png",
+        "htmlagilitypack.1.4.9.nupkg.sha512",
+        "htmlagilitypack.nuspec",
+        "lib/Net20/HtmlAgilityPack.dll",
+        "lib/Net20/HtmlAgilityPack.pdb",
+        "lib/Net20/HtmlAgilityPack.xml",
+        "lib/Net40-client/HtmlAgilityPack.dll",
+        "lib/Net40-client/HtmlAgilityPack.pdb",
+        "lib/Net40-client/HtmlAgilityPack.xml",
+        "lib/Net40/HtmlAgilityPack.XML",
+        "lib/Net40/HtmlAgilityPack.dll",
+        "lib/Net40/HtmlAgilityPack.pdb",
+        "lib/Net45/HtmlAgilityPack.XML",
+        "lib/Net45/HtmlAgilityPack.dll",
+        "lib/Net45/HtmlAgilityPack.pdb",
+        "lib/NetCore45/HtmlAgilityPack.dll",
+        "lib/NetCore45/HtmlAgilityPack.pdb",
+        "lib/NetCore45/HtmlAgilityPack.pri",
+        "lib/NetCore45/HtmlAgilityPack.xml",
+        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
+        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
+        "lib/sl3-wp/_._",
+        "lib/sl4/HtmlAgilityPack.XML",
+        "lib/sl4/HtmlAgilityPack.dll",
+        "lib/sl4/HtmlAgilityPack.pdb",
+        "lib/sl5/HtmlAgilityPack.XML",
+        "lib/sl5/HtmlAgilityPack.dll",
+        "lib/sl5/HtmlAgilityPack.pdb",
+        "readme.txt"
+      ]
+    },
+    "HtmlAgilityPack.CssSelectors/1.0.2": {
+      "sha512": "bB4FeVvcNROENPWQfFSmPQ6q99jGk8ru5QoBB3qnEeaP451fjnqQ0uPuMgmWHAOZIXUAoOQozv/5fEEVSDyIzA==",
+      "type": "package",
+      "path": "htmlagilitypack.cssselectors/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "htmlagilitypack.cssselectors.1.0.2.nupkg.sha512",
+        "htmlagilitypack.cssselectors.nuspec",
+        "lib/net45/HtmlAgilityPack.CssSelectors.dll",
+        "lib/net45/HtmlAgilityPack.CssSelectors.pdb",
+        "lib/net45/HtmlAgilityPack.dll",
+        "lib/net45/HtmlAgilityPack.xml"
+      ]
+    },
+    "RabbitMQ.Client/6.2.4": {
+      "sha512": "ttM7F+Ymb00EyQ25UCC44djr5GN/+cZNey2B3xD6JdJQQx7UcCtHdKBCE09zcmWuB+Afp07tFzetE14l/U8xQw==",
+      "type": "package",
+      "path": "rabbitmq.client/6.2.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net461/RabbitMQ.Client.dll",
+        "lib/net461/RabbitMQ.Client.xml",
+        "lib/netstandard2.0/RabbitMQ.Client.dll",
+        "lib/netstandard2.0/RabbitMQ.Client.xml",
+        "rabbitmq.client.6.2.4.nupkg.sha512",
+        "rabbitmq.client.nuspec"
+      ]
+    },
+    "System.Memory/4.5.4": {
+      "sha512": "1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==",
+      "type": "package",
+      "path": "system.memory/4.5.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Memory.dll",
+        "lib/net461/System.Memory.xml",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.1/System.Memory.dll",
+        "lib/netstandard1.1/System.Memory.xml",
+        "lib/netstandard2.0/System.Memory.dll",
+        "lib/netstandard2.0/System.Memory.xml",
+        "ref/netcoreapp2.1/_._",
+        "system.memory.4.5.4.nupkg.sha512",
+        "system.memory.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Threading.Channels/4.7.1": {
+      "sha512": "6akRtHK/wab3246t4p5v3HQrtQk8LboOt5T4dtpNgsp3zvDeM4/Gx8V12t0h+c/W9/enUrilk8n6EQqdQorZAA==",
+      "type": "package",
+      "path": "system.threading.channels/4.7.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Threading.Channels.dll",
+        "lib/net461/System.Threading.Channels.xml",
+        "lib/netcoreapp3.0/System.Threading.Channels.dll",
+        "lib/netcoreapp3.0/System.Threading.Channels.xml",
+        "lib/netstandard1.3/System.Threading.Channels.dll",
+        "lib/netstandard1.3/System.Threading.Channels.xml",
+        "lib/netstandard2.0/System.Threading.Channels.dll",
+        "lib/netstandard2.0/System.Threading.Channels.xml",
+        "system.threading.channels.4.7.1.nupkg.sha512",
+        "system.threading.channels.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "HtmlAgilityPack >= 1.4.9",
+      "HtmlAgilityPack.CssSelectors >= 1.0.2",
+      "RabbitMQ.Client >= 6.2.4"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Admin\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\epc\\Ap-Sem3\\Enterprise Application Programming\\EAD Projects\\CrawlNews\\BotSend_RabbitMQ\\BotSend_RabbitMQ.csproj",
+      "projectName": "BotSend_RabbitMQ",
+      "projectPath": "D:\\epc\\Ap-Sem3\\Enterprise Application Programming\\EAD Projects\\CrawlNews\\BotSend_RabbitMQ\\BotSend_RabbitMQ.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "D:\\epc\\Ap-Sem3\\Enterprise Application Programming\\EAD Projects\\CrawlNews\\BotSend_RabbitMQ\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "dependencies": {
+          "HtmlAgilityPack": {
+            "target": "Package",
+            "version": "[1.4.9, )"
+          },
+          "HtmlAgilityPack.CssSelectors": {
+            "target": "Package",
+            "version": "[1.0.2, )"
+          },
+          "RabbitMQ.Client": {
+            "target": "Package",
+            "version": "[6.2.4, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+      }
+    }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'HtmlAgilityPack 1.4.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "HtmlAgilityPack",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'HtmlAgilityPack.CssSelectors 1.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "HtmlAgilityPack.CssSelectors",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
+}

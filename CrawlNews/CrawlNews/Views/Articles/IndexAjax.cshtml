@@ -21,7 +21,7 @@
                 Content
             </th>
             <th>
-                @Html.ActionLink("CategoryId", "Index", new { sortOrder = ViewBag.CategorySortParm, currentFilter = ViewBag.CurrentFilter })
+                @Html.ActionLink("Category", "Index", new { sortOrder = ViewBag.CategorySortParm, currentFilter = ViewBag.CurrentFilter })
             </th>
             <th>
                 @Html.ActionLink("CreatedAt", "Index", new { sortOrder = ViewBag.CreatedSortParm, currentFilter = ViewBag.CurrentFilter })
@@ -48,7 +48,7 @@
                     @Html.DisplayFor(modelItem => item.Content)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CategoryId)
+                    @Html.DisplayFor(modelItem => item.Category)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.CreatedAt)

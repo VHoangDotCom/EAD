@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using CrawlNews.Models;
 using CrawlNews.config;
 using PagedList;
+using CrawlNews.Services;
+using Nest;
 
 namespace CrawlNews.Controllers
 {
@@ -24,7 +26,7 @@ namespace CrawlNews.Controllers
             ViewBag.CreatedSortParm = String.IsNullOrEmpty(sortOrder) ? "create_desc" : "";
             ViewBag.CategorySortParm = sortOrder == "cate_desc" ? "cate_asc" : "cate_desc";
             
-            //PageList
+            //PageList + search ajax
             if (searchString != null)
             {
                 page = 1;
@@ -35,26 +37,39 @@ namespace CrawlNews.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
+            //Search by Linq
             var articles = db.Articles.AsQueryable();
             if (!String.IsNullOrEmpty(searchString))
             {
                 articles = articles.Where(s => s.Title.Contains(searchString)
                                        || s.Description.Contains(searchString)
-                                       || s.CategoryId.Contains(searchString)
+                                       || s.Category.Contains(searchString)
                                        || s.Content.Contains(searchString)
                                        );
             }
 
+          /*  //Search by ElasticSearch
+            List<Article> list = new List<Article>();
+            var searchRequest = new SearchRequest<Article>()
+            {
+                From = 0,
+                Size = 10,
+                QueryOnQueryString = searchString
+            };
+            var searchResult = ElasticSearchService.GetInstance().Search<Article>(searchRequest);
+            list = searchResult.Documents.ToList();*/
+
+            //Order by Title, Category , Created date
             switch (sortOrder)
             {
                 case "title_desc":
                     articles = articles.OrderByDescending(s => s.Title);
                     break;
                 case "cate_desc":
-                    articles = articles.OrderByDescending(s => s.CategoryId);
+                    articles = articles.OrderByDescending(s => s.Category);
                     break;
                 case "cate_asc":
-                    articles = articles.OrderBy(s => s.CategoryId);
+                    articles = articles.OrderBy(s => s.Category);
                     break;
                 case "create_desc":
                     articles = articles.OrderByDescending(s => s.CreatedAt);
@@ -63,10 +78,16 @@ namespace CrawlNews.Controllers
                     articles = articles.OrderBy(s => s.UrlSource);
                     break;
             }
+
+
             int pageSize = 5;
             int pageNumber = (page ?? 1);
+
+            //list by linq
             return View(articles.ToPagedList(pageNumber, pageSize));
 
+            //list by elastic
+            //return View(list.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult IndexAjax(string sortOrder, string currentFilter, string searchString, int? page)
@@ -76,7 +97,7 @@ namespace CrawlNews.Controllers
             ViewBag.CreatedSortParm = String.IsNullOrEmpty(sortOrder) ? "create_desc" : "";
             ViewBag.CategorySortParm = sortOrder == "cate_desc" ? "cate_asc" : "cate_desc";
 
-            //PageList
+            //PageList + search ajax
             if (searchString != null)
             {
                 page = 1;
@@ -87,26 +108,39 @@ namespace CrawlNews.Controllers
             }
             ViewBag.CurrentFilter = searchString;
 
+            //Search by Linq
             var articles = db.Articles.AsQueryable();
             if (!String.IsNullOrEmpty(searchString))
             {
                 articles = articles.Where(s => s.Title.Contains(searchString)
                                        || s.Description.Contains(searchString)
-                                       || s.CategoryId.Contains(searchString)
+                                       || s.Category.Contains(searchString)
                                        || s.Content.Contains(searchString)
                                        );
             }
 
+           /* //Search by ElasticSearch
+            List<Article> list = new List<Article>();
+            var searchRequest = new SearchRequest<Article>()
+            {
+                From = 0,
+                Size = 10,
+                QueryOnQueryString = searchString
+            };
+            var searchResult = ElasticSearchService.GetInstance().Search<Article>(searchRequest);
+            list = searchResult.Documents.ToList();*/
+
+            //Order by Title, Category , Created date
             switch (sortOrder)
             {
                 case "title_desc":
                     articles = articles.OrderByDescending(s => s.Title);
                     break;
                 case "cate_desc":
-                    articles = articles.OrderByDescending(s => s.CategoryId);
+                    articles = articles.OrderByDescending(s => s.Category);
                     break;
                 case "cate_asc":
-                    articles = articles.OrderBy(s => s.CategoryId);
+                    articles = articles.OrderBy(s => s.Category);
                     break;
                 case "create_desc":
                     articles = articles.OrderByDescending(s => s.CreatedAt);
@@ -115,11 +149,16 @@ namespace CrawlNews.Controllers
                     articles = articles.OrderBy(s => s.UrlSource);
                     break;
             }
+
+
             int pageSize = 5;
             int pageNumber = (page ?? 1);
             return PartialView(articles.ToPagedList(pageNumber, pageSize));
+            //return View(list.ToPagedList(pageNumber, pageSize));
 
         }
+
+
 
         // GET: Articles/Details/5
         public ActionResult Details(int? id)
@@ -151,6 +190,7 @@ namespace CrawlNews.Controllers
         {
             if (ModelState.IsValid)
             {
+                ElasticSearchService.GetInstance().IndexDocument(article);
                 db.Articles.Add(article);
                 db.SaveChanges();
                 return RedirectToAction("Index");

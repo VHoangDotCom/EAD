@@ -7,13 +7,13 @@ namespace CrawlNews.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class updateagain : IMigrationMetadata
+    public sealed partial class InitDB1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(updateagain));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitDB1));
         
         string IMigrationMetadata.Id
         {
-            get { return "202205051302492_update again"; }
+            get { return "202205080417382_InitDB1"; }
         }
         
         string IMigrationMetadata.Source

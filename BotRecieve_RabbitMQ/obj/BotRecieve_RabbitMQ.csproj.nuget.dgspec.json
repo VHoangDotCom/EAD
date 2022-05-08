@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\epc\\Ap-Sem3\\Enterprise Application Programming\\EAD Projects\\CrawlNews\\BotRecieve_RabbitMQ\\BotRecieve_RabbitMQ.csproj": {}
+    "D:\\epc\\Ap-Sem3\\Enterprise Application Programming\\EAD Projects\\BotRecieve_RabbitMQ\\BotRecieve_RabbitMQ.csproj": {}
   },
   "projects": {
-    "D:\\epc\\Ap-Sem3\\Enterprise Application Programming\\EAD Projects\\CrawlNews\\BotRecieve_RabbitMQ\\BotRecieve_RabbitMQ.csproj": {
+    "D:\\epc\\Ap-Sem3\\Enterprise Application Programming\\EAD Projects\\BotRecieve_RabbitMQ\\BotRecieve_RabbitMQ.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\epc\\Ap-Sem3\\Enterprise Application Programming\\EAD Projects\\CrawlNews\\BotRecieve_RabbitMQ\\BotRecieve_RabbitMQ.csproj",
+        "projectUniqueName": "D:\\epc\\Ap-Sem3\\Enterprise Application Programming\\EAD Projects\\BotRecieve_RabbitMQ\\BotRecieve_RabbitMQ.csproj",
         "projectName": "BotRecieve_RabbitMQ",
-        "projectPath": "D:\\epc\\Ap-Sem3\\Enterprise Application Programming\\EAD Projects\\CrawlNews\\BotRecieve_RabbitMQ\\BotRecieve_RabbitMQ.csproj",
+        "projectPath": "D:\\epc\\Ap-Sem3\\Enterprise Application Programming\\EAD Projects\\BotRecieve_RabbitMQ\\BotRecieve_RabbitMQ.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\epc\\Ap-Sem3\\Enterprise Application Programming\\EAD Projects\\CrawlNews\\BotRecieve_RabbitMQ\\obj\\",
+        "outputPath": "D:\\epc\\Ap-Sem3\\Enterprise Application Programming\\EAD Projects\\BotRecieve_RabbitMQ\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

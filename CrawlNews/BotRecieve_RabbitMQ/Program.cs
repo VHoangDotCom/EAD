@@ -1,14 +1,16 @@
 ﻿using RabbitMQ.Client;
 using System;
+using System.Threading.Tasks;
 
 namespace BotRecieve_RabbitMQ
 {
     class Program
     {
-        static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-           
-            QueueRecieve.Consume();
+            BotScheduler bot = new BotScheduler();
+            //Thuc hien hanh dong nay 10h moi ngay
+            await  bot.Execute_Everyday_10h();
         }
     }
 }

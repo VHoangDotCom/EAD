@@ -178,6 +178,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="config\DBConnection.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SoursesController.cs" />
@@ -186,16 +187,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202205051232067_vn.cs" />
-    <Compile Include="Migrations\202205051232067_vn.designer.cs">
-      <DependentUpon>202205051232067_vn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202205051302492_update again.cs" />
-    <Compile Include="Migrations\202205051302492_update again.Designer.cs">
-      <DependentUpon>202205051302492_update again.cs</DependentUpon>
+    <Compile Include="Migrations\202205080417382_InitDB1.cs" />
+    <Compile Include="Migrations\202205080417382_InitDB1.Designer.cs">
+      <DependentUpon>202205080417382_InitDB1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Article.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Sourse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ElasticSearchService.cs" />
@@ -265,6 +263,11 @@
     <Content Include="Views\Sourses\GetListSource.cshtml" />
     <Content Include="Views\Sourses\PreviewLink.cshtml" />
     <Content Include="Views\Shared\LayoutBlog.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -284,11 +287,8 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202205051232067_vn.resx">
-      <DependentUpon>202205051232067_vn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202205051302492_update again.resx">
-      <DependentUpon>202205051302492_update again.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202205080417382_InitDB1.resx">
+      <DependentUpon>202205080417382_InitDB1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

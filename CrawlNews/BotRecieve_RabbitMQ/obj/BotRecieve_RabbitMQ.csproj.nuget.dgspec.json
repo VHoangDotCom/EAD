@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[1.0.2, )"
             },
+            "Quartz": {
+              "target": "Package",
+              "version": "[3.4.0, )"
+            },
             "RabbitMQ.Client": {
               "target": "Package",
               "version": "[6.2.4, )"

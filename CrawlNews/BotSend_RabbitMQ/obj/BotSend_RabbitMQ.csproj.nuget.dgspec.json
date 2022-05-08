@@ -55,6 +55,10 @@
             "RabbitMQ.Client": {
               "target": "Package",
               "version": "[6.2.4, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
             }
           },
           "imports": [

@@ -12,7 +12,7 @@ namespace BotRecieve_RabbitMQ
 {
     class QueueRecieve
     {
-        public static void Consume()
+        public async void Consume()
         {
             Console.OutputEncoding = Encoding.UTF8;
             var factory = new ConnectionFactory() { HostName = "localhost" };

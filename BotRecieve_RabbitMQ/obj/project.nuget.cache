@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+UdHb3HOw6SN4thkIKcWjoCsqk6Te4CYb1IBun7Uo5RSjwfoXwYkU5lfcQAleBBdxpCBZFpYmUh13ZtFOG2Xgg==",
+  "dgSpecHash": "e2Ea6/9kyWnFHj8w+kPJMsq4C/ow8Jcv7iIop1jiI42MD2mNFWahlbY2TrHpAaWjTaRsoOi9v2ATrMJOoXcmhw==",
   "success": true,
-  "projectFilePath": "D:\\epc\\Ap-Sem3\\Enterprise Application Programming\\EAD Projects\\CrawlNews\\BotRecieve_RabbitMQ\\BotRecieve_RabbitMQ.csproj",
+  "projectFilePath": "D:\\epc\\Ap-Sem3\\Enterprise Application Programming\\EAD Projects\\BotRecieve_RabbitMQ\\BotRecieve_RabbitMQ.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\htmlagilitypack\\1.4.9\\htmlagilitypack.1.4.9.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\htmlagilitypack.cssselectors\\1.0.2\\htmlagilitypack.cssselectors.1.0.2.nupkg.sha512",

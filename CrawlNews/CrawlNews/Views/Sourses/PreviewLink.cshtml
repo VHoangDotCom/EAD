@@ -117,7 +117,7 @@ new AjaxOptions
                 <div class="form-group">
                     @Html.LabelFor(model => model.SelectorContent, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.SelectorContent, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.SelectorContent, new { htmlAttributes = new { @class = "form-control selCo" } })
                         @Html.ValidationMessageFor(model => model.SelectorContent, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -165,8 +165,7 @@ new AjaxOptions
             $('#exampleModal').trigger('focus')
         })
         function saveSourse() {
-            var id = `${ Math.random() * 1000
-                }-${Math.random() * 1000}-${Math.random() * 1000}-${Math.random() * 1000}`;
+          
         var data = {
           
             Url: $('.url').val(),
@@ -174,6 +173,7 @@ new AjaxOptions
             SubUrl: $('.subUrl').val(),
             SelectorTitle: $('.selectorTitle').val(),
             SelectorImage: $('.selImage').val(),
+            SelectorContent: $('.selCo').val(),
             SelectorDescription: $('.selDesc').val(),
             Category: $('.category').val(),
         }
@@ -182,7 +182,7 @@ new AjaxOptions
             url: "/Sourses/CreateSourse",
             dataType: "json",
             type: "POST",
-            contentType: 'application/json; charset=utf-8',
+            contentType: "application/json; charset=utf-8",
             data: JSON.stringify(data),
             async: true,
             processData: false,

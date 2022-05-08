@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\RabbitMQ\\rabbitmq_server-3.9.15\\sbin\\Send\\Send.csproj": {}
+    "D:\\epc\\Ap-Sem3\\Enterprise Application Programming\\EAD Projects\\Send\\Send.csproj": {}
   },
   "projects": {
-    "D:\\RabbitMQ\\rabbitmq_server-3.9.15\\sbin\\Send\\Send.csproj": {
+    "D:\\epc\\Ap-Sem3\\Enterprise Application Programming\\EAD Projects\\Send\\Send.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\RabbitMQ\\rabbitmq_server-3.9.15\\sbin\\Send\\Send.csproj",
+        "projectUniqueName": "D:\\epc\\Ap-Sem3\\Enterprise Application Programming\\EAD Projects\\Send\\Send.csproj",
         "projectName": "Send",
-        "projectPath": "D:\\RabbitMQ\\rabbitmq_server-3.9.15\\sbin\\Send\\Send.csproj",
+        "projectPath": "D:\\epc\\Ap-Sem3\\Enterprise Application Programming\\EAD Projects\\Send\\Send.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\RabbitMQ\\rabbitmq_server-3.9.15\\sbin\\Send\\obj\\",
+        "outputPath": "D:\\epc\\Ap-Sem3\\Enterprise Application Programming\\EAD Projects\\Send\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

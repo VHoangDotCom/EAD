@@ -186,7 +186,7 @@ namespace CrawlNews.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,UrlSource,Title,Image,Description,Content,CategoryId,CreatedAt")] Article article)
+        public ActionResult Create( Article article)
         {
             if (ModelState.IsValid)
             {

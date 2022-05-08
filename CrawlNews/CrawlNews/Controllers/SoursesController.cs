@@ -53,7 +53,7 @@ namespace CrawlNews.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Url,SelectorSubUrl,SelectorTitle,SelectorImage,SelectorDescrition,SelectorContent,CategoryId")] Sourse sourse)
+        public ActionResult Create( Sourse sourse)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace CrawlNews.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Url,SelectorSubUrl,SelectorTitle,SelectorImage,SelectorDescrition,SelectorContent,CategoryId")] Sourse sourse)
+        public ActionResult Edit( Sourse sourse)
         {
             if (ModelState.IsValid)
             {
@@ -137,6 +137,7 @@ namespace CrawlNews.Controllers
         }
         public ActionResult PreviewLink()
         {
+            ViewBag.ListCategory = db.Categories.ToList();
             return View();
         }
 
@@ -186,7 +187,7 @@ namespace CrawlNews.Controllers
         {
             if (sourceCheck.SubUrl != "" && sourceCheck.SelectorTitle != "" && sourceCheck.SelectorDescription != ""
                 && sourceCheck.SelectorContent != "" && sourceCheck.SelectorSubUrl != ""
-                && sourceCheck.SelectorImage != "" && sourceCheck.Category != "")
+                && sourceCheck.SelectorImage != "" && sourceCheck.Category.ToString() != "")
             {
                 try
                 {
@@ -197,7 +198,7 @@ namespace CrawlNews.Controllers
                     var description = doc.QuerySelector(sourceCheck.SelectorDescription)?.InnerText ?? "";
                     var imageNode = doc.QuerySelector(sourceCheck.SelectorImage)?.Attributes["data-src"].Value;
                     var content = doc.QuerySelector(sourceCheck.SelectorContent)?.InnerText;
-                    var category = doc.QuerySelector(sourceCheck.Category)?.InnerText ?? "";
+                    var category = doc.QuerySelector(sourceCheck.CategoryId.ToString())?.InnerText ?? "";
                     string thumbnail = "";
                     if (imageNode != null)
                     {
@@ -211,16 +212,17 @@ namespace CrawlNews.Controllers
                     StringBuilder contentBuilder = new StringBuilder();
                     foreach (var content1 in contentNode)
                     {
-                        contentBuilder.Append(content.ToString());
+                        contentBuilder.Append(content1.ToString());
                     }
 
                     Article article = new Article()
                     {
                         Title = title,
                         Description = description,
-                        Content = contentBuilder.ToString(),
+                        Content = content,
                         Image = thumbnail,
-                        Category = category,
+                        Category = db.Categories.Find(category).Name,
+                        //Category = category,
 
                     };
 
